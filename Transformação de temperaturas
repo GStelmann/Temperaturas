@@ -1,0 +1,54 @@
+#include <cmath>
+#include <iostream>
+using namespace std;
+
+int main() {
+  double c, f, k, r;
+  cout << "Caso vá inserir uma temperatura em Graus Célcius, insira 1, caso vá "
+          "inserir uma temperatura em Kelvin, pressione 2, caso vá inserir uma "
+          "temperatura em fahrenheit, insira 3"
+       << endl;
+  cin >> r;
+  if (r != 1 && r != 2 && r != 3) {
+    cout << "por favor, insira um numero válido";
+    return 0;
+  }
+  cout << "por favor, insira a temperatura" << endl;
+  if (r == 1) {
+    cin >> c;
+    if (c < -273.15) {
+      cout << "Cara, corre que tem algo errado aí, essa temperatura não "
+              "existe!!!!"
+           << endl;
+      return 0;
+    }
+    f = (c * 9) / 5 + 32;
+    k = c + 273.15;
+  }
+  if (r == 2) {
+    cin >> k;
+    if (k < 0) {
+      cout << "Cara, corre que tem algo errado aí, essa temperatura não "
+              "existe!!!!"
+           << endl;
+      return 0;
+    }
+    c = k - 273.15;
+    f = (c * 9) / 5 + 32;
+  }
+  if (r == 3) {
+    cin >> f;
+    if (f < -459.67) {
+      cout << "Cara, corre que tem algo errado aí, essa temperatura não "
+              "existe!!!!"
+           << endl;
+      return 0;
+    }
+    c = (f - 32) * 5 / 9;
+    k = c + 273.15;
+  }
+
+  cout << "A temperatura em kelvin é " << k
+       << ", a temperatura em grasu celcius é " << c
+       << ", e a temperatura em graus fahrenheit é " << f << endl;
+}
